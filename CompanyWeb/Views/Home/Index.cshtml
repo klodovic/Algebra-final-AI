@@ -1,0 +1,32 @@
+﻿@model CompanyWeb.ModelDTO.LoginRequestDTO
+
+<form method="post">
+
+    <section class="hero-area text-center overlay" data-scroll-index="0">
+        <div id="particles-js" class="box"></div>
+        <div class="container box-overlay">
+            <div class="row d-flex align-items-center justify-content-center" style="height: 800px;">
+                <header class="heading-holder w-25">
+                    <img src="~/logo-vertical.png" class="w-50 mb-4" />
+                    <h2 class="text-small text-light"><span class="text-warning">Tvrtko</span>.ai</h2>
+                    <div class="form-group mb-3 mt-4">
+                        <input asp-for="Email" type="email" class="form-control form-control-sm" id="email" placeholder="E-mail">
+                        <span asp-validation-for="Email" class="text-warning text-small d-flex align-items-start"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Password" type="password" class="form-control form-control-sm" id="password" placeholder="Lozinka">
+                        <span asp-validation-for="Password" class="text-warning text-small d-flex align-items-start"></span>
+                    </div>
+                    <button type="submit" value="Submit" class="btn btn-primary w-50 mt-4">Prijava</button>
+                    <p class="text-secondary text-small mt-4"><small>Nemate račun? <a asp-action="Register" asp-controller="Home" class="text-small text-warning">Registracija korisnika</a></small></p>
+                </header>
+            </div>
+
+        </div>
+    </section>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+

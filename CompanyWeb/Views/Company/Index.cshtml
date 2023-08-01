@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CompanyWeb.ModelDTO.OrganizationDTO>
+<br />
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-6">
+            <h2 class="text-warning">Popis poslovnih subjekata</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Company" asp-action="Create" class="btn btn-warning btn-sm"><i class="bi bi-building-fill-add"></i> Dodaj tvrtku</a>
+        </div>
+    </div>
+
+    <table class="table table-hover mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Naziv</th>
+                <th scope="col">Adresa</th>
+                <th scope="col">Grad</th>
+                <th scope="col">MBS</th>
+                <th scope="col">OIB</th>
+                <th scope="col">IBAN</th>
+                <th class="text-center" scope="col">Operacije</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-primary">
+                    <td class="align-middle">@item.CompanyName</td>
+                    <td class="align-middle">@item.Street</td>
+                    <td class="align-middle">@item.City</td>
+                    <td class="align-middle">@item.Mbs</td>
+                    <td class="align-middle">@item.Oib</td>
+                    <td class="align-middle">@item.Iban</td>
+                    <td class="text-center">
+                        <a asp-controller="Company" asp-action="Update" asp-route-id="@item.Id" class="btn btn-sm btn-dark" data-toggle="tooltip" data-placement="top" title="Uredi tvrtku"><i class="bi bi-pencil-square"></i></a>
+                        <a asp-controller="Company" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Pogledaj detalje"><i class="bi bi-info-square-fill"></i></a>
+                        <a asp-controller="Company" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Obriši tvrtku"><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

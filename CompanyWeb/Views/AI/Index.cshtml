@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*JavaScript for Input and image select*@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="~/js/input/buffer.min.js"></script>
+<script src="~/js/input/filetype.min.js"></script>
+<script src="~/js/input/piexif.js"></script>
+<script src="../js/plugins/filetype.min.js" type="text/javascript"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <img src="~/ai-box.png" class="w-100" />
+        </div>
+
+
+        <div class="col-6 pt-5 mt-5">
+            <div class="row">
+                <h1 class="text-light fw-bolder fs-1"><strong class="text-warning">Tvrtko</strong>.ai</h1>
+                <blockquote class="blockquote">
+                    <p class="fs-5 mt-4 text-justify" style="text-align: justify">
+                        Ova usluga omogućuje Vam izvlačenje podataka o kompaniji iz slike uz korištenje umjetne inteligencije.
+                        Dovoljno je učitati sliku koja sadrži podatke o tvrkti, a ostatak posla će obaviti umjetna inteligencija.
+                    </p>
+                </blockquote>
+                <figcaption class="blockquote-footer text-warning fst-italic m-0">digitalni asistent</figcaption>
+            </div>
+
+            <div class="mt-5">
+                <form enctype="multipart/form-data" action="http://localhost/plugins/test">
+                    <div class="file-loading">
+                        <input id="file-cr" name="file-cr[]" type="file" multiple>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

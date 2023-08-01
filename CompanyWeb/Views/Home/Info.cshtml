@@ -1,0 +1,47 @@
+﻿<section class="hero-area text-center overlay" data-scroll-index="0">
+    <div id="particles-js" class="box"></div>
+    <div class="container box-overlay">
+        <div class="row mt-5" style="height: 750px;">
+            <div class="col-4">
+                <div>
+                    <div class="card-body d-flex justify-content-center">
+                        <img src="~/logo-vertical.png" class="w-50" />
+                    </div>
+                    <div class="card-body d-flex justify-content-center mt-4">
+                        <h3 class="card-title text-light"><span class="text-warning">Tvrtko</span>.ai</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <p id="element" class="text-light fs-5" style="text-align: justify"></p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+<script>
+    new TypeIt("#element", {
+        speed: 40,
+        waitUntilVisible: true,
+    })
+        .type('<span class="text-warning">Pozdrav</span>', { delay: 30 })
+        .break({ delay: 500 })
+        .move(null, { to: "END" })
+        .break()
+        .type("Moje ime je Tvrtko i digitalni sam službenik. Moj prethodnik, također Tvrtko, obavljao je poslove oko vođenja i ažuriranja kartoteke u fizičkom obliku u kojoj je svaka tvrtka imala svoju karticu s pripadajućim podacima. Svaka promjena podataka neke tvrtke unosila se u prazne retke kartice, a sve kartice su bile poredane prema alfabetskom nizu. Nedostatak se očituje u mogućim greškama prilikom upisa podataka, a njihovo ispravljanje često uzrokuje neurednost i lošiju čitljivost. Pored toga, karticu je nakon korištenja moguće vratiti na pogrešno mjesto što bi uzrokovalo otežani pronalazak sljedeći puta kao i gubitak iste.")
+        .break()
+        .break()
+        .pause(500)
+        .move(null, { to: "END" })
+        .type("Nakon 40 godina rada, moj prethodnik uživa u zasluženoj mirovini. Njegov posao je sada digitaliziran s čime je uklonjen nedostatak ispravke podataka, njihova čitljivost te sortiranje. Koristim umjetnu inteligenciju za izvlačenje podataka o tvrtki iz slike i time pridonosim većoj radnoj učinkovitosti kolegama u uredu. ")
+        .pause(500)
+        .break()
+        .break()
+        .type("Produkt sam ideje za završni rad na stručnom prijediplomskom studiju Visokog učilišta Algebra. Za pristup i korištenje sustava potrebno se prijaviti na početnoj stranici, odnosno registrirati kao novi korisnik. ")
+        .break({ delay: 500 })
+        .break({ delay: 500 })
+        .type('<em class="text-light">- <span class="text-warning">Tvrtko</span>.ai</em> ')
+        .go();
+</script>

@@ -1,0 +1,36 @@
+﻿@model CompanyWeb.ModelDTO.OrganizationDTO
+
+<div class="container mb-3">
+    <h2 class="mt-3 mb-5 pb-2 border-bottom text-warning">Detalji tvrtke</h2>
+</div>
+
+<div class="container">
+    <div class="card mb-3">
+        <h3 class="card-header">@Model.CompanyName</h3>
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><span class="text-muted">Adresa:</span> @Model.Street</li>
+            <li class="list-group-item"><span class="text-muted">Grad:</span> @Model.City</li>
+            <li class="list-group-item"><span class="text-muted">Poštanski broj:</span> @Model.PostNumber</li>
+            <li class="list-group-item"><span class="text-muted">Država:</span> @Model.Country</li>
+
+            <li class="list-group-item"><span class="text-muted">Telefon:</span> @Model.Phone</li>
+            <li class="list-group-item"><span class="text-muted">Fax:</span> @Model.Fax</li>
+            <li class="list-group-item"><span class="text-muted">Mobitel:</span> @Model.CellNumber</li>
+            <li class="list-group-item"><span class="text-muted">Web stranica:</span> @Model.Website</li>
+            <li class="list-group-item"><span class="text-muted">E-mail:</span> @Model.Email</li>
+
+            <li class="list-group-item"><span class="text-muted">OIB:</span> @Model.Oib</li>
+            <li class="list-group-item"><span class="text-muted">MBS:</span> @Model.Mbs</li>
+            <li class="list-group-item"><span class="text-muted">IBAN:</span> @Model.Iban</li>
+        </ul>
+
+        <div class="d-flex justify-content-center mt-2 mb-2">
+            <div class="w-50 d-flex justify-content-center">
+                <a asp-action="Index" asp-controller="Company" class="btn btn-secondary form-control w-25 m-2"><i class="bi bi-caret-left-fill"></i> Povratak</a>
+                <a asp-action="Update" asp-controller="Company" asp-route-id="@Model.Id" class="btn btn-primary form-control w-25 m-2"><i class="bi bi-pencil-square"></i> Uredi</a>
+                <a asp-action="Delete" asp-controller="Company" asp-route-id="@Model.Id" class="btn btn-danger form-control w-25 m-2"><i class="bi bi-trash-fill"></i> Obriši</a>
+            </div>
+        </div>
+    </div>
+</div>
