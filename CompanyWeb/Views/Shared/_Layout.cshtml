@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="~/CompanyWeb.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-    @*File input CSS*@
-    <link rel="stylesheet" href="~/css/fileinput.css" asp-append-version="true" />
-
     @*Icons*@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -80,45 +77,6 @@
     @*<script src="~/js/plugins.js" asp-append-version="true"></script>*@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/particles.js" asp-append-version="true"></script>
-
-    @*Input and image select*@
-    <script src="~/js/input/fileinput.min.js" asp-append-version="true"></script>
-    <script src="~/js/input/cr.js" asp-append-version="true"></script>
-    <script src="~/js/input/theme.js" asp-append-version="true"></script>
-
-    <script>
-        $('#file-cr').fileinput({
-            theme: 'fa5',
-            language: 'cr',
-            uploadUrl: '#',
-            allowedFileExtensions: ['jpg', 'png', 'gif']
-        });
-        $(".btn-warning").on('click', function () {
-            var $el = $("#file-4");
-            if ($el.attr('disabled')) {
-                $el.fileinput('enable');
-            } else {
-                $el.fileinput('disable');
-            }
-        });
-        $(".btn-info").on('click', function () {
-            $("#file-4").fileinput('refresh', { previewClass: 'bg-info' });
-        });
-        $(document).ready(function () {
-            $("#test-upload").fileinput({
-                'theme': 'fa5',
-                'showPreview': false,
-                'allowedFileExtensions': ['jpg', 'png', 'gif'],
-                'elErrorContainer': '#errorBlock'
-            });
-
-            $('#inp-add-1').on('change', function () {
-                var $plugin = $('#inp-add-2').data('fileinput');
-                $plugin.addToStack($(this)[0].files[0])
-            });
-
-        });
-    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

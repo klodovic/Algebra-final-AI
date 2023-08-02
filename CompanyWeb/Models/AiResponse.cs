@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace CompanyWeb.ModelDTO
+namespace CompanyWeb.Models
 {
-    public class OrganizationCreateDTO
+    public class AiResponse
     {
-        [Required(ErrorMessage = "Ovo polje je obavezno")]
         [JsonPropertyName("company_name")]
         public string CompanyName { get; set; }
 
@@ -44,13 +42,5 @@ namespace CompanyWeb.ModelDTO
 
         [JsonPropertyName("iban")]
         public string Iban { get; set; }
-    }
-
-
-    public class OrganizationDTO : OrganizationCreateDTO
-    {
-        [Required]
-        public int Id { get; set; }
-
     }
 }

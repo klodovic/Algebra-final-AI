@@ -40,7 +40,7 @@ namespace CompanyWeb.Controllers
         public async Task<IActionResult> Create(string token)
         { 
             return View();
-        }
+        } 
 
         [HttpPost]
         [ValidateAntiForgeryToken]

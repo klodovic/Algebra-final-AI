@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Next Design\Desktop\zavrsni\CompanyApi\CompanyAPI\Algebra-final\CompanyWeb
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Next Design/Desktop/zavrsni/CompanyApi/CompanyAPI/Algebra-final/CompanyWeb/Views/AI/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQUlcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Next Design/Desktop/zavrsni/CompanyApi/CompanyAPI/Algebra-final/CompanyWeb/Views/AI/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQUlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
