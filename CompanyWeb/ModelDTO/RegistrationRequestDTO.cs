@@ -2,7 +2,7 @@
 
 namespace CompanyWeb.ModelDTO
 {
-    public class RegisterUserDTO
+    public class RegistrationRequestDTO
     {
         [Required(ErrorMessage = "Ovo polje je obavezno")]
         public string Name { get; set; }
@@ -12,7 +12,5 @@ namespace CompanyWeb.ModelDTO
 
         [Required(ErrorMessage = "Ovo polje je obavezno")]
         public string Password { get; set; }
-
-        public string Role { get; set; }
     }
 }

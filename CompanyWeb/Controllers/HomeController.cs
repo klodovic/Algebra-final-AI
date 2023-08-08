@@ -4,7 +4,6 @@ using CompanyWeb.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using CompanyWeb.Model;
-using CompanyAPI.ModelDTO;
 using Newtonsoft.Json;
 using CompanyWeb.Utility;
 using Microsoft.AspNetCore.Authentication;
@@ -43,8 +42,9 @@ namespace CompanyWeb.Controllers
                 LoginResponseDTO model = JsonConvert.DeserializeObject<LoginResponseDTO>(Convert.ToString(response.Result));
 
                 var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+                identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, model.User.Id.ToString()));
+                identity.AddClaim(new Claim(ClaimTypes.Name, model.User.Name));
                 identity.AddClaim(new Claim(ClaimTypes.Email, model.User.Email));
-                identity.AddClaim(new Claim(ClaimTypes.Role, model.User.Role)); //array of roles
                 var principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme ,principal);
 
@@ -53,10 +53,12 @@ namespace CompanyWeb.Controllers
             }
             else
             {
-                ModelState.AddModelError("CustomError", response.ErrorMessage.FirstOrDefault());
+                ModelState.AddModelError("ErrorMessage", response.ErrorMessage.FirstOrDefault());
             }
             return View(obj);
         }
+
+
 
         //Register
         [HttpGet]
@@ -67,14 +69,18 @@ namespace CompanyWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterUserDTO obj)
+        public async Task<IActionResult> Register(RegistrationRequestDTO obj)
         {
             ApiResponse result = await _authService.RegisterAsync<ApiResponse>(obj);
-            if (result != null && result.IsSuccess)
+            if (result != null && !result.IsSuccess)
             {
-                return RedirectToAction("Index");
+                foreach (var errorMessage in result.ErrorMessage)
+                {
+                    ModelState.AddModelError("Email", errorMessage);
+                }
+                return View();
             }
-            return View();
+            return RedirectToAction("Index");
         }
 
         //Logout
@@ -95,6 +101,82 @@ namespace CompanyWeb.Controllers
         public IActionResult Info()
         {
             return View();
+        }
+
+
+
+        //Profile
+        public async Task<IActionResult> Profile()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            int id = int.Parse(userIdClaim.Value);
+            if (id != null)
+            {
+                var response = await _authService.GetAsync<ApiResponse>(id, HttpContext.Session.GetString(StaticDetails.SessionToken));
+                if (response != null && response.IsSuccess)
+                {
+                    UserDTO user = JsonConvert.DeserializeObject<UserDTO>(Convert.ToString(response.Result));
+                    return View(user);
+                }
+            }
+            return RedirectToAction("AccessDenied");
+        }
+
+        //Display user data
+        public async Task<IActionResult> Update(int id, string token)
+        {
+            var response = await _authService.GetAsync<ApiResponse>(id, HttpContext.Session.GetString(StaticDetails.SessionToken));
+            if (response != null && response.IsSuccess)
+            {
+                UserDTO user = JsonConvert.DeserializeObject<UserDTO>(Convert.ToString(response.Result));
+                return View(user);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(UserDTO user, string token)
+        {
+            if (ModelState.IsValid)
+            {
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+                int userId = int.Parse(userIdClaim.Value);
+
+                var response = await _authService.UpdateAsync<ApiResponse>(user, HttpContext.Session.GetString(StaticDetails.SessionToken));
+                if (response != null && response.IsSuccess)
+                {
+                    return RedirectToAction(nameof(Profile));
+                }
+            }
+            return View(user);
+        }
+
+
+        //Delete user
+        public async Task<IActionResult> Delete(int id, string token)
+        {
+            var response = await _authService.GetAsync<ApiResponse>(id, HttpContext.Session.GetString(StaticDetails.SessionToken));
+            if (response != null && response.IsSuccess)
+            {
+                UserDTO user = JsonConvert.DeserializeObject<UserDTO>(Convert.ToString(response.Result));
+                return View(user);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(UserDTO model, string token)
+        {
+            var response = await _authService.DeleteAsync<ApiResponse>(model.Id, HttpContext.Session.GetString(StaticDetails.SessionToken));
+            if (response != null && response.IsSuccess)
+            {
+                await Logout();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(model);
         }
 
     }

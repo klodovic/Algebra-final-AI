@@ -20,6 +20,32 @@ namespace CompanyWeb.Controllers
             _companyService = companyService;
         }
 
+        //Search company by name
+        public async Task<IActionResult> Search(string companyName, string token)
+        {
+            List<OrganizationDTO> organizations = new();
+
+            if (!string.IsNullOrEmpty(companyName))
+            {
+                var response = await _companyService.GetAllAsync<ApiResponse>(HttpContext.Session.GetString(StaticDetails.SessionToken));
+                if (response != null && response.IsSuccess)
+                {
+                    organizations = JsonConvert.DeserializeObject<List<OrganizationDTO>>(Convert.ToString(response.Result));
+
+                    // Filter the organizations based on the search string
+                    organizations = organizations
+                        .Where(o => o.CompanyName.Contains(companyName, StringComparison.OrdinalIgnoreCase))
+                        .ToList();
+                }
+            }
+            else
+            {
+                // If the search string is empty
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View("Search", organizations);
+        }
 
 
         //Display all organizations
@@ -38,9 +64,9 @@ namespace CompanyWeb.Controllers
 
         //Create new organization
         public async Task<IActionResult> Create(string token)
-        { 
+        {
             return View();
-        } 
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -49,12 +75,13 @@ namespace CompanyWeb.Controllers
             if (ModelState.IsValid)
             {
                 var response = await _companyService.CreateAsync<ApiResponse>(model, HttpContext.Session.GetString(StaticDetails.SessionToken));
-                if (response != null && response.IsSuccess)
+                if (response != null && !response.IsSuccess)
                 {
-                    return RedirectToAction(nameof(Index));
+                    ModelState.AddModelError("ErrorMessage", response.ErrorMessage.FirstOrDefault());
+                    return View(model);
                 }
             }
-            return View(model);
+            return RedirectToAction("Index");
         }
 
 

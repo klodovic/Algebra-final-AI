@@ -7,7 +7,9 @@ namespace CompanyAPI.Repository
     {
         bool IsUniqueUser(string email);
         Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO);
-        Task<User> Register(RegisterUserDTO registerUserDTO);
-
+        Task<LocalUser> Register(RegistrationRequestDTO registerUserDTO);
+        Task<LocalUser> GetUser(int id);
+        Task UpdateAsync(LocalUser user);
+        Task DeleteAsync(LocalUser user);
     }
 }

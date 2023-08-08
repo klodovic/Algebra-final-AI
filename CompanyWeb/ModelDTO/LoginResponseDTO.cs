@@ -1,11 +1,10 @@
-﻿using CompanyWeb.ModelDTO;
-using CompanyWeb.Models;
+﻿using CompanyWeb.Models;
 
-namespace CompanyAPI.ModelDTO
+namespace CompanyWeb.ModelDTO
 {
     public class LoginResponseDTO
     {
-        public User User { get; set; }
+        public UserDTO User { get; set; }
         public string Token { get; set; }
     }
 }

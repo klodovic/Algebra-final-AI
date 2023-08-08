@@ -1,0 +1,50 @@
+﻿@model CompanyWeb.Models.UserDTO
+
+
+<form asp-action="Delete">
+    <div asp-validation-summary="ModelOnly" class="text-bg-danger"></div>
+    <div class="row d-flex justify-content-center mt-3">
+        <div class="col-6 mt-5">
+            <div class="card text-secondary bg-dark border-primary mb-3">
+                <div class="card-header bg-dark text-warning border-bottom border-primary fs-5"><i class="bi bi-exclamation-triangle-fill mr"></i> Želite li obrisati svoj račun?</div>
+                <div class="card-body p-5">
+                    <input hidden asp-for="Id" />
+
+                    <div class="d-flex justify-content-center mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-x-fill text-danger" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="form-label mt-2"><i class="bi bi-person-lines-fill"></i> Korisničko ime</label>
+                        <input asp-for="@Model.Name" disabled class="form-control form-control-sm" id="name" aria-describedby="name" placeholder="Korisničko ime">
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="Password" class="form-label mt-2"><i class="bi bi-key-fill"></i> Lozinka</label>
+                        <input asp-for="@Model.Password" disabled class="form-control form-control-sm" id="password" aria-describedby="email" placeholder="Lozinka">
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="Email" class="form-label mt-2"><i class="bi bi-envelope-fill"></i> E-mail adresa</label>
+                        <input asp-for="@Model.Email" disabled class="form-control form-control-sm" id="email" aria-describedby="email" placeholder="E-mail adresa">
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <div class="w-50 d-flex justify-content-center mt-5">
+                            <a asp-controller="Home" asp-action="Profile" asp-route-id="@Model.Id" class="btn btn-primary m-2" data-toggle="tooltip" data-placement="top" title="Detalji profila"><i class="bi bi-caret-left-fill"></i> Povratak</a>
+                            <button type="submit" value="Spremi" class="btn btn-danger m-2"><i class="bi bi-trash-fill mr"></i>  Obriši</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

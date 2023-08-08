@@ -1,0 +1,55 @@
+﻿@model CompanyWeb.Models.UserDTO
+
+
+<form asp-action="Update">
+    <div asp-validation-summary="ModelOnly" class="text-bg-danger"></div>
+    <div class="row d-flex justify-content-center mt-3">
+        <div class="col-6 mt-5">
+            <div class="card text-secondary bg-dark border-primary mb-3">
+                <div class="card-header bg-dark text-warning border-bottom border-primary fs-5"><i class="bi bi-pen-fill mr"></i> Uređivanje korisničkih podataka</div>
+                <div class="card-body p-5">
+                    <input hidden asp-for="Id" />
+
+                    <div class="d-flex justify-content-center mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-bounding-box text-body-tertiary" viewBox="0 0 16 16">
+                            <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        </svg>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="form-label mt-2"><i class="bi bi-person-lines-fill"></i> Korisničko ime</label>
+                        <input asp-for="@Model.Name" class="form-control form-control-sm" id="name" aria-describedby="name" placeholder="Korisničko ime">
+                        <span asp-validation-for="Name" class="text-warning text-small"></span>
+                    </div>
+
+
+                    <div class="form-group mt-3">
+                        <label asp-for="Password" class="form-label mt-2"><i class="bi bi-key-fill"></i> Lozinka</label>
+                        <input asp-for="@Model.Password" class="form-control form-control-sm" id="password" aria-describedby="email" placeholder="Lozinka">
+                        <span asp-validation-for="Password" class="text-warning text-small"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label asp-for="Email" class="form-label mt-2"><i class="bi bi-envelope-fill"></i> E-mail adresa</label>
+                        <input asp-for="@Model.Email" readonly class="form-control form-control-sm bg-primary text-warning" id="email" aria-describedby="email" placeholder="E-mail adresa">
+                        <cite class="text-body-tertiary" title="Source Title" style="font-size: 12px;">* E-mail adresu nije moguće promijeniti</cite>
+                    </div>
+
+
+                    <div class="d-flex justify-content-center">
+                        <div class="w-50 d-flex justify-content-center mt-3">
+                            <a asp-controller="Home" asp-action="Profile" asp-route-id="@Model.Id" class="btn btn-primary m-2" data-toggle="tooltip" data-placement="top" title="Detalji profila"><i class="bi bi-caret-left-fill"></i> Povratak</a>
+                            <button type="submit" value="Spremi" class="btn btn-warning m-2"><i class="bi bi-database-fill-up mr"></i>  Spremi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

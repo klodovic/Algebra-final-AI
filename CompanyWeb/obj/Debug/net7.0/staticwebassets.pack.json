@@ -17,14 +17,6 @@
       "PackagePath": "staticwebassets\\bg.png"
     },
     {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\css\\fileinput.css",
-      "PackagePath": "staticwebassets\\css\\fileinput.css"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\css\\fileinput.min.css",
-      "PackagePath": "staticwebassets\\css\\fileinput.min.css"
-    },
-    {
       "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\css\\responsive.css",
       "PackagePath": "staticwebassets\\css\\responsive.css"
     },
@@ -39,58 +31,6 @@
     {
       "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\buffer.js",
-      "PackagePath": "staticwebassets\\js\\input\\buffer.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\buffer.min.js",
-      "PackagePath": "staticwebassets\\js\\input\\buffer.min.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\cr.js",
-      "PackagePath": "staticwebassets\\js\\input\\cr.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\fileinput.js",
-      "PackagePath": "staticwebassets\\js\\input\\fileinput.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\fileinput.min.js",
-      "PackagePath": "staticwebassets\\js\\input\\fileinput.min.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\filetype.es6.js",
-      "PackagePath": "staticwebassets\\js\\input\\filetype.es6.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\filetype.es6.min.js",
-      "PackagePath": "staticwebassets\\js\\input\\filetype.es6.min.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\filetype.js",
-      "PackagePath": "staticwebassets\\js\\input\\filetype.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\filetype.min.js",
-      "PackagePath": "staticwebassets\\js\\input\\filetype.min.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\piexif.js",
-      "PackagePath": "staticwebassets\\js\\input\\piexif.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\piexif.min.js",
-      "PackagePath": "staticwebassets\\js\\input\\piexif.min.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\theme.js",
-      "PackagePath": "staticwebassets\\js\\input\\theme.js"
-    },
-    {
-      "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\input\\theme.min.js",
-      "PackagePath": "staticwebassets\\js\\input\\theme.min.js"
     },
     {
       "Id": "C:\\Users\\Next Design\\Desktop\\zavrsni\\CompanyApi\\CompanyAPI\\Algebra-final\\CompanyWeb\\wwwroot\\js\\particles.js",

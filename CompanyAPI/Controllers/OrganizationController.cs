@@ -111,17 +111,14 @@ namespace CompanyAPI.Controllers
         {
             try
             {
-                if (createDTO == null)
+                bool ifOrgIsUnique = _db.IsCompanyUnique(createDTO.CompanyName);
+
+                if (!ifOrgIsUnique)
                 {
                     _response.StatusCode = HttpStatusCode.BadRequest;
+                    _response.IsSuccess = false;
+                    _response.ErrorMessage.Add("Tvrtka već postoji!");
                     return BadRequest(_response);
-                }
-
-                IEnumerable<Organization> organizations = await _db.GetAllAsync();
-                if (organizations.FirstOrDefault(u => u.CompanyName?.ToLower() == createDTO.CompanyName?.ToLower()) != null)
-                {
-                    ModelState.AddModelError("ErrorMessage", "Organization already exists");
-                    return BadRequest(ModelState);
                 }
 
                 Organization org = _mapper.Map<Organization>(createDTO);

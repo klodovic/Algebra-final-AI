@@ -16,7 +16,7 @@ namespace CompanyAPI.Repository
             return await _db.Set<T>().ToListAsync();
         }
 
-        public async Task<T?> GetAsync(int? id)
+        public async Task<T> GetAsync(int? id)
         {
             if (id.Equals(null))
             {
@@ -46,6 +46,16 @@ namespace CompanyAPI.Repository
         public async Task SaveAsync()
         {
             await _db.SaveChangesAsync();
+        }
+
+        public bool IsCompanyUnique(string company)
+        {
+            var org = _db.Organizations.FirstOrDefault(x => x.CompanyName == company);
+            if (org == null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
